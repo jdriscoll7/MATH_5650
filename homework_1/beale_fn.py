@@ -53,3 +53,5 @@ def beale_fn(x, *args):
                  + np.multiply(np.multiply(x, np.power(y, 2)), np.power(y, 3) - 1))
                    
     H = np.array([[H_1_1 H_1_2] [H_1_2 H_2_2]])
+
+    return f, g, H
