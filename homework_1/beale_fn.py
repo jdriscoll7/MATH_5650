@@ -19,12 +19,20 @@ def beale_fn(x, *args):
     if type(x) is not np.ndarray:
         x = np.asarray(x)
     
+    # Convert to simpler arguments for readibility.
+    x = x[0]
+    y = x[1]
+    
     # Compute value of function at point x - use np.multiply to allow for matrix x.
-    f =   np.power(1.500 - x[0] + (np.multiply(x[0], x[1]))), 2)
-        + np.power(2.250 - x[0] + (np.multiply(x[0], (np.power(x[1], 2))), 2)
-        + np.power(2.625 - x[0] + (np.multiply(x[0], (np.power(x[1], 3))), 2)
+    f =   np.power(1.500 - x + (np.multiply(x, y))), 2)
+        + np.power(2.250 - x + (np.multiply(x, (np.power(y, 2))), 2)
+        + np.power(2.625 - x + (np.multiply(x, (np.power(y, 3))), 2)
                    
     # Compute the gradient of function at point x. Constructs column vector using numpy operations.
-    g_0 = 
-    g_1 = 
+    g_0 = 2 * (y-1) * (1.5 - x + np.multiply(x, y))                                \
+        + 2 * (np.power(y, 2) - 1) * (2.250 - x + np.multiply(x, np.power(y, 2)))  \
+        + 2 * (np.power(y, 3) - 1) * (2.625 - x + np.multiply(x, np.power(y, 3)))
+    g_1 = 2 * (x) * (1.5 - x + np.multiply(x, y))                                  \
+        + 2 * (2*np.multiply(x, y)) * (2.250 - x + np.multiply(x, np.power(y, 2))) \
+        + 2 * (3*np.multiply(x, np.power(y, 2))) * (2.625 - x + np.multiply(x, np.power(y, 3)))
     g = np.array([[2*]]).T
