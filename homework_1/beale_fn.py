@@ -32,7 +32,20 @@ def beale_fn(x, *args):
     g_0 = 2 * (y-1) * (1.5 - x + np.multiply(x, y))                                \
         + 2 * (np.power(y, 2) - 1) * (2.250 - x + np.multiply(x, np.power(y, 2)))  \
         + 2 * (np.power(y, 3) - 1) * (2.625 - x + np.multiply(x, np.power(y, 3)))
+                   
     g_1 = 2 * (x) * (1.5 - x + np.multiply(x, y))                                  \
         + 2 * (2*np.multiply(x, y)) * (2.250 - x + np.multiply(x, np.power(y, 2))) \
         + 2 * (3*np.multiply(x, np.power(y, 2))) * (2.625 - x + np.multiply(x, np.power(y, 3)))
-    g = np.array([[2*]]).T
+                   
+    g = np.array([[g_0 g_1]]).T
+                   
+    # Compute Hessian of function at point x.
+    H_1_1 = 2 * np.power(y - 1, 2) \
+          + 2 * np.power(np.power(y, 2) - 1, 2) \
+          + 2 * np.power(np.power(y, 3) - 1, 2)
+    H_2_2 = 2 * np.power(x, 2) \
+          + 4 * (np.multiply(x, 2.25 - x + np.multiply(x, np.power(y, 2)))) \
+          + 2 * np.power(np.multiply(x, y), 2)
+    H_1_2 = 2 * (1.5 - 2*x + 2*(np.multiply(x, y))) \
+          + 4 * (np.multiply(y, 2.25 - x + np.multiply(x, np.power(y, 2))) + np.multiply(np.multiply(x, y), np.power(y, 2) - 1)) \
+          + 6 * (np.multiply(np.power(y, 2), 2.25 - x + np.multiply(x, np.power(y, 3))) + np.multiply(np.multiply(x, np.power(y, 2)), np.power(y, 3) - 1))
