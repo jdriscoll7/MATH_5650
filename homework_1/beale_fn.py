@@ -18,8 +18,8 @@ def beale_fn(x, *args):
         x = np.array(x)
 
     # Convert to simpler arguments for readibility.
-    x = x[0]
     y = x[1]
+    x = x[0]
     
     # Compute value of function at point x - use np.multiply to allow for matrix x.
     f =   np.power(1.500 - x + (np.multiply(x, y)), 2)                  \
@@ -49,12 +49,15 @@ def beale_fn(x, *args):
                  + np.multiply(np.multiply(x, y), np.power(y, 2) - 1)) \
           + 6 * (np.multiply(np.power(y, 2), 2.25 - x + np.multiply(x, np.power(y, 3))) 
                  + np.multiply(np.multiply(x, np.power(y, 2)), np.power(y, 3) - 1))
-                   
-    H = np.array([[H_1_1, H_1_2] [H_1_2, H_2_2]])
+                
+    H = np.array([[H_1_1, H_1_2], [H_1_2, H_2_2]])
 
     return f, g, H
 
 if __name__ == '__main__':
-    min_test = beale_fn((3, 0.5))
-    print(min_test)
+    f,g,H =  beale_fn((3, 0.5))
+    print(f)
+    print(g)
+    print(H)
+    
         
