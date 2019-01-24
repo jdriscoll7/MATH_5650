@@ -62,19 +62,21 @@ def beale_fn(x, *args):
     return f, g, H
 
 if __name__ == '__main__':
-    f,g,H =  beale_fn((3, 0.5))
+    
+    # Test values at the known minimum of Beale function.
+    f, g, H =  beale_fn((3, 0.5))
     
     # Print the function value.
     print('\nFunction value:')
     print(f)
     print('\n')
 
+    # Print the gradient value.
     print('Gradient value:')
     print(g)
     print('\n')
     
+    # Print the Hessian value.
     print('Hessian value:')
     print(H)
     print('\n')
-    
-        
