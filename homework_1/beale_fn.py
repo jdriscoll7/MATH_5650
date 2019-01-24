@@ -43,7 +43,8 @@ def beale_fn(x, *args):
           + 2 * np.power(np.power(y, 3) - 1, 2)
     H_2_2 = 2 * np.power(x, 2) \
           + 4 * (np.multiply(x, 2.25 - x + np.multiply(x, np.power(y, 2)) + 3*y)) \
-          + 6 * (2 * np.multiply(np.multiply(x,y), 2.625 - x + np.multiply(x, np.power(y,3))) + (3 * np.multiply(np.power(x,2), np.power(y,4)))
+          + 6 * (2 * np.multiply(np.multiply(x,y), 2.625 - x + np.multiply(x, np.power(y,3))) 
+                 + (3 * np.multiply(np.power(x,2), np.power(y,4)))
     H_1_2 = 2 * (1.5 - 2*x + 2*(np.multiply(x, y))) \
           + 4 * (np.multiply(y, 2.25 - x + np.multiply(x, np.power(y, 2))) 
                  + np.multiply(np.multiply(x, y), np.power(y, 2) - 1)) \
