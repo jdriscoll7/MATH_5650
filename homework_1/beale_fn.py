@@ -53,3 +53,6 @@ def beale_fn(x, *args):
     H = np.array([[H_1_1 H_1_2] [H_1_2 H_2_2]])
 
     return f, g, H
+
+    if __name__ == "main":
+        min_test = beale_fn((3, 0.5))
