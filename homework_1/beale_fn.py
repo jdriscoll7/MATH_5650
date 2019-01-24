@@ -15,8 +15,8 @@ def beale_fn(x, *args):
     
     # Check type and convert to numpy array.
     if type(x) is not np.ndarray:
-        x = np.asarray(x)
-    
+        x = np.array(x)
+
     # Convert to simpler arguments for readibility.
     x = x[0]
     y = x[1]
@@ -35,7 +35,7 @@ def beale_fn(x, *args):
         + 2 * (2*np.multiply(x, y)) * (2.250 - x + np.multiply(x, np.power(y, 2))) \
         + 2 * (3*np.multiply(x, np.power(y, 2))) * (2.625 - x + np.multiply(x, np.power(y, 3)))
                    
-    g = np.array([[g_0 g_1]]).T
+    g = np.array([[g_0, g_1]]).T
                    
     # Compute Hessian of function at point x.
     H_1_1 = 2 * np.power(y - 1, 2) \
@@ -50,9 +50,11 @@ def beale_fn(x, *args):
           + 6 * (np.multiply(np.power(y, 2), 2.25 - x + np.multiply(x, np.power(y, 3))) 
                  + np.multiply(np.multiply(x, np.power(y, 2)), np.power(y, 3) - 1))
                    
-    H = np.array([[H_1_1 H_1_2] [H_1_2 H_2_2]])
+    H = np.array([[H_1_1, H_1_2] [H_1_2, H_2_2]])
 
     return f, g, H
 
-    if __name__ == "main":
-        min_test = beale_fn((3, 0.5))
+if __name__ == '__main__':
+    min_test = beale_fn((3, 0.5))
+    print(min_test)
+        
