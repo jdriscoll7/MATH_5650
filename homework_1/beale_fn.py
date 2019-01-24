@@ -21,12 +21,16 @@ def beale_fn(x, *args):
     y = x[1]
     x = x[0]
     
+    # -----------------------------------------------------------------------------
     # Compute value of function at point x - use np.multiply to allow for matrix x.
+    # -----------------------------------------------------------------------------
     f =   np.power(1.500 - x + (np.multiply(x, y)), 2)                  \
         + np.power(2.250 - x + (np.multiply(x, (np.power(y, 2)))), 2)   \
         + np.power(2.625 - x + (np.multiply(x, (np.power(y, 3)))), 2)   \
                    
+    # ---------------------------------------------------------------------------------------------
     # Compute the gradient of function at point x. Constructs column vector using numpy operations.
+    # ---------------------------------------------------------------------------------------------
     g_0 = 2 * (y-1) * (1.5 - x + np.multiply(x, y))                                \
         + 2 * (np.power(y, 2) - 1) * (2.250 - x + np.multiply(x, np.power(y, 2)))  \
         + 2 * (np.power(y, 3) - 1) * (2.625 - x + np.multiply(x, np.power(y, 3)))
@@ -36,8 +40,10 @@ def beale_fn(x, *args):
         + 2 * (3*np.multiply(x, np.power(y, 2))) * (2.625 - x + np.multiply(x, np.power(y, 3)))
                    
     g = np.array([[g_0, g_1]]).T
-                   
+    
+    # ---------------------------------------
     # Compute Hessian of function at point x.
+    # ---------------------------------------
     H_1_1 = 2 * np.power(y - 1, 2) \
           + 2 * np.power(np.power(y, 2) - 1, 2) \
           + 2 * np.power(np.power(y, 3) - 1, 2)
@@ -56,9 +62,19 @@ def beale_fn(x, *args):
     return f, g, H
 
 if __name__ == '__main__':
-    f,g,H =  beale_fn((3, 0.5))
+    f,g,H =  beale_fn((4.20, 2.40))
+    
+    # Print the function value.
+    print('\nFunction value:')
     print(f)
+    print('\n')
+
+    print('Gradient value:')
     print(g)
+    print('\n')
+    
+    print('Hessian value:')
     print(H)
+    print('\n')
     
         
