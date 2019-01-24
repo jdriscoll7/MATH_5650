@@ -22,9 +22,9 @@ def beale_fn(x, *args):
     y = x[1]
     
     # Compute value of function at point x - use np.multiply to allow for matrix x.
-    f =   np.power(1.500 - x + (np.multiply(x, y)), 2)
-        + np.power(2.250 - x + (np.multiply(x, (np.power(y, 2)))), 2)
-        + np.power(2.625 - x + (np.multiply(x, (np.power(y, 3)))), 2)
+    f =   np.power(1.500 - x + (np.multiply(x, y)), 2)                  \
+        + np.power(2.250 - x + (np.multiply(x, (np.power(y, 2)))), 2)   \
+        + np.power(2.625 - x + (np.multiply(x, (np.power(y, 3)))), 2)   \
                    
     # Compute the gradient of function at point x. Constructs column vector using numpy operations.
     g_0 = 2 * (y-1) * (1.5 - x + np.multiply(x, y))                                \
