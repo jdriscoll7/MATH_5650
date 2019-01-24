@@ -48,7 +48,7 @@ def beale_fn(x, *args):
           + 2 * np.power(np.power(y, 2) - 1, 2) \
           + 2 * np.power(np.power(y, 3) - 1, 2)
     H_2_2 = 2 * np.power(x, 2) \
-          + 4 * (np.multiply(x, 2.25 - x + np.multiply(x, np.power(y, 2)) + 3*y)) \
+          + 4 * (np.multiply(x, 2.25 - x + np.multiply(x, np.power(y, 2))) + 2*np.power(np.multiply(x, y), 2)) \
           + 6 * (2 * np.multiply(np.multiply(x,y), 2.625 - x + np.multiply(x, np.power(y,3))) \
           + (3 * np.multiply(np.power(x,2), np.power(y,4))))
     H_1_2 = 2 * (1.5 - 2*x + 2*(np.multiply(x, y))) \
@@ -62,7 +62,7 @@ def beale_fn(x, *args):
     return f, g, H
 
 if __name__ == '__main__':
-    f,g,H =  beale_fn((4.20, 2.40))
+    f,g,H =  beale_fn((3, 0.5))
     
     # Print the function value.
     print('\nFunction value:')
